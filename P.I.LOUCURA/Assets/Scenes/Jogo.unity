@@ -750,7 +750,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52492776}
   m_Layer: 0
-  m_Name: Props
+  m_Name: Obstaculos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7153,7 +7153,7 @@ GameObject:
   - component: {fileID: 249374736}
   - component: {fileID: 249374737}
   m_Layer: 0
-  m_Name: Tilemap
+  m_Name: Linha do Tempo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16078,7 +16078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1149201466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 9.54}
+  m_LocalPosition: {x: -0.51, y: -0.76, z: 9.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16825,7 +16825,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 190898829810526189, guid: a454f6891c7502d4f98dbabdde56ad91, type: 3}
       propertyPath: m_Name
-      value: Palyer
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 190898829810526189, guid: a454f6891c7502d4f98dbabdde56ad91, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6835378114442970011, guid: a454f6891c7502d4f98dbabdde56ad91, type: 3}
       propertyPath: m_RootOrder
@@ -19606,7 +19610,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1400827218}
   m_Layer: 0
-  m_Name: Grass
+  m_Name: Grama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
