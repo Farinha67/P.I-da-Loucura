@@ -25,6 +25,6 @@ public class MenuPrincipal : MonoBehaviour
     public void SairJogo()
     {
         Debug.Log("Sair do Jogo");
-   
+
     }
 }
