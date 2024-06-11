@@ -1,8 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace DouglasAvila.CobraRobot.Scripts
-{
+
     public class CharacterController : MonoBehaviour
     {
      
@@ -55,4 +54,3 @@ namespace DouglasAvila.CobraRobot.Scripts
             }
         }
     }
-}
