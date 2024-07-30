@@ -8,6 +8,7 @@ public class MenuPrincipal : MonoBehaviour
     [SerializeField] private string NomeDoLevelDeJogo;
     [SerializeField] private GameObject PainelMenuInicial;
     [SerializeField] private GameObject PainelOpcoes;
+    [SerializeField] private GameObject PainelTeclas;
     public void Jogar()
     {
         SceneManager.LoadScene(NomeDoLevelDeJogo);
@@ -18,6 +19,11 @@ public class MenuPrincipal : MonoBehaviour
         PainelOpcoes.SetActive(true);
     }
     public void FecharOpções()
+    {
+        PainelOpcoes.SetActive(false);
+        PainelMenuInicial.SetActive(true);
+    }
+    public void AbrirTeclas()
     {
         PainelOpcoes.SetActive(false);
         PainelMenuInicial.SetActive(true);
