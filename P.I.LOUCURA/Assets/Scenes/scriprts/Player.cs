@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
         */
         if (Input.GetButtonDown("Fire1"))
         {
-            GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
+            GameObject temp = Instantiate(bullet, transform.position, transform.rotation);  
             temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * direction, 0);
         }
         UpdateScoreText();
