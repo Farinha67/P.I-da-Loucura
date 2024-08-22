@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     public Text texto;
     public string text;
     [SerializeField] private Bullet bulletprefab;
+    public GameManangerScript gameMananger;
+    private bool isDead;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +40,7 @@ public class Player : MonoBehaviour
 
 
 
-        texto.text = "Pontos :" + score.ToString();
+        texto.text = "Pedaços de Papel :10/" + score.ToString();
 
         horizontal = Input.GetAxisRaw("Horizontal");
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
@@ -73,34 +75,36 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            //life--;
-            //life -= 1;
-            //life = life -1;
+            life--;
            
-            if (life <= 0)
+            if (life <= 0 && !isDead)
             {
+                isDead = true;
+                gameMananger.GameOver();
                 Destroy(gameObject);
             }
         }
         if (collision.gameObject.CompareTag("Aumenta"))
         {
-            score += 4;
+            score += 1;
             Destroy(collision.gameObject);
             UpdateScoreText();
         }
         if (collision.gameObject.CompareTag("Divide"))
         {
-            score = score / 2;
+            score /= 2;
             Destroy(collision.gameObject);
         }
     }
-    private void OnCollisionStay2D(Collision2D collision)
+    /*private void OnCollisionStay2D(Collision2D collision)
     {
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
     }
+    */
     private void UpdateScoreText()
     {
     }
+    
 }

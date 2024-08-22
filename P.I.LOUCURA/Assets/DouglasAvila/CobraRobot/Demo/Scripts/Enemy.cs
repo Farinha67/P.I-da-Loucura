@@ -32,26 +32,20 @@ public class Enemy : MonoBehaviour
             Destroy(collision.gameObject);//Esse destroi o tiro
             if (life <= 0)
             {
-                Destroy(gameObject);//Esse destroi o inimigo
+                Batata();//Esse destroi o inimigo
             }
-            if (life < 0)
-            {
-                Instantiate(gameObject).GetComponent<DroparItem>();
-            }
+         
 
         }
     }
-    public void Destruir()
+    void Batata()
     {
         ControladorDePontuação.Pontuacao++;
-        Destroy(this.gameObject);
-    }
-    void OnDestroy()
-    {
         if (itemPrefab != null)
         {
             Instantiate(itemPrefab, transform.position, Quaternion.identity);
         }
     }
+   
 }
 
