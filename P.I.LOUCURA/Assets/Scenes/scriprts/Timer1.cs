@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class Timer1 : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField]float remainingTime;
+    public GameManangerScript gameMananger;
+    public GameObject Player;
     // Update is called once per frame
     void Update()
     {
@@ -17,10 +20,10 @@ public class Timer1 : MonoBehaviour
         }
         else if (remainingTime < 0)
         {
-
             remainingTime = 0;
-            //GameOver();
+            gameMananger.GameOver();
             timerText.color = Color.red;
+            Destroy(Player);
         }
         int minutes = Mathf.FloorToInt(remainingTime / 60);
         int seconds = Mathf.FloorToInt(remainingTime % 60);

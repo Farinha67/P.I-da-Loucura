@@ -95,6 +95,12 @@ public class Player : MonoBehaviour
             score /= 2;
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.CompareTag("MorreVoid"))
+        {
+            isDead = true;
+            gameMananger.GameOver();
+            Destroy(gameObject);
+        }
     }
     /*private void OnCollisionStay2D(Collision2D collision)
     {
