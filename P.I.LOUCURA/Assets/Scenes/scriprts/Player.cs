@@ -20,9 +20,14 @@ public class Player : MonoBehaviour
     [SerializeField] private Bullet bulletprefab;
     public GameManangerScript gameMananger;
     private bool isDead;
+
+
+
+    
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1;
         lifeMax = life;
 
 
@@ -40,11 +45,14 @@ public class Player : MonoBehaviour
 
 
 
-        texto.text = "Pedaços de Papel :10/" + score.ToString();
+        texto.text = "Paginas do livro :10/" + score.ToString();
 
         horizontal = Input.GetAxisRaw("Horizontal");
+
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
+
         animator.SetFloat("Speed",horizontal);
+
         groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
 
         if (Input.GetButtonDown("Jump") && groundCheck)
