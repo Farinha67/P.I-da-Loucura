@@ -723,7 +723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c828fbb9c44fde4e82a9b3a8ec59a4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NomeDoLevelDeJogo: Jogo
+  NomeDoLevelDeJogo: Next
   PainelMenuInicial: {fileID: 564202626}
   PainelOpcoes: {fileID: 1298166640}
 --- !u!114 &476166516
