@@ -33,28 +33,8 @@ public class Player : MonoBehaviour
 
 
     }
-
-    // Update is called once per frame
-    void Update()
+   void Update()
     {
-     
-
-
-
-
-
-
-
-        texto.text = "Paginas do livro :10/" + score.ToString();
-
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        body.velocity = new Vector2(horizontal * speed, body.velocity.y);
-
-        animator.SetFloat("Speed",horizontal);
-
-        groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
-
         if (Input.GetButtonDown("Jump") && groundCheck)
         {
             body.AddForce(new Vector2(0, jumpStrength * 100));
@@ -63,6 +43,28 @@ public class Player : MonoBehaviour
         {
             direction = (int)horizontal;
         }
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GameObject temp = Instantiate(bullet, transform.position, transform.rotation);
+            temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * direction, 0);
+        }
+        UpdateScoreText();
+
+    }
+    void FixedUpdate()
+    {
+        texto.text = "Paginas do livro :10/" + score.ToString();
+
+        horizontal = Input.GetAxisRaw("Horizontal");
+
+        body.velocity = new Vector2(horizontal * speed, body.velocity.y);
+
+        animator.SetFloat("Speed", horizontal);
+
+        groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
+
+
         /*Para quem está usando GetAxis
         if(horizontal < 0)
         {
@@ -72,12 +74,7 @@ public class Player : MonoBehaviour
             direction = 1;
         }
         */
-        if (Input.GetButtonDown("Fire1"))
-        {
-            GameObject temp = Instantiate(bullet, transform.position, transform.rotation);  
-            temp.GetComponent<Rigidbody2D>().velocity = new Vector2(bulletSpeed * direction, 0);
-        }
-        UpdateScoreText();
+     
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -120,5 +117,6 @@ public class Player : MonoBehaviour
     private void UpdateScoreText()
     {
     }
-    
+   
+
 }
