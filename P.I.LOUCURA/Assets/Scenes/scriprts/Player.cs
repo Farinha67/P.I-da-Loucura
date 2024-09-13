@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public GameObject bullet;
     public Transform foot;
     bool groundCheck;
-    public float speed = 5, jumpStrength = 5, bulletSpeed = 8;
+    public int speed = 5, jumpStrength = 5, bulletSpeed = 8;
     float horizontal;
     public Rigidbody2D body;
     public Animator animator;
@@ -51,16 +51,20 @@ public class Player : MonoBehaviour
         }
         UpdateScoreText();
 
-    }
-    void FixedUpdate()
-    {
         texto.text = "Paginas do livro :10/" + score.ToString();
 
         horizontal = Input.GetAxisRaw("Horizontal");
 
         body.velocity = new Vector2(horizontal * speed, body.velocity.y);
 
-        animator.SetFloat("Speed", horizontal);
+        if (Mathf.Abs(horizontal) > 0)
+        {
+            animator.SetBool("Speed", true);
+        }
+        else
+        {
+            animator.SetBool("Speed", false);
+        }
 
         groundCheck = Physics2D.OverlapCircle(foot.position, 0.05f);
 
@@ -74,7 +78,7 @@ public class Player : MonoBehaviour
             direction = 1;
         }
         */
-     
+
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
