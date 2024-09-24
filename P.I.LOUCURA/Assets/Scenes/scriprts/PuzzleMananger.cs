@@ -15,7 +15,7 @@ public class PuzzleMananger : MonoBehaviour
         // Esconde o botão no início
         nextButton.gameObject.SetActive(false);
     }
-
+    
     void Update()
     {
         CheckAllPieces();
